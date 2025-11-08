@@ -6,7 +6,7 @@ const formLogin = reactive({
 
 async function login() {
   if (!formLogin.email || !formLogin.password) {
-    navagationTo('/dashboard');
+    navigateTo('/');
   }
 }
 </script>
