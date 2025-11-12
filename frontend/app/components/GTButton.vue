@@ -1,6 +1,6 @@
 <script setup lang="ts">
 defineProps<{
-  type?: 'button' | 'submit' | 'reset';
+  type?: "button" | "submit" | "reset";
   disabled?: boolean;
 }>();
 </script>

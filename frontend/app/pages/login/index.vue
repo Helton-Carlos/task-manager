@@ -1,6 +1,9 @@
 <script setup lang="ts">
 import { useForm, useField } from "vee-validate";
+import { useBreakpoints } from "~/composables/useBreakpoints";
 import * as yup from "yup";
+
+const breakpoints = useBreakpoints();
 
 const toast = useToast();
 
@@ -31,8 +34,8 @@ const login = handleSubmit(async (values) => {
     await navigateTo("/");
 
     toast.success({
-      title: "Sucesso!",
-      message: "Seja bem-vindo!",
+      title: "Sucesso",
+      message: "Seja bem-vindo",
     });
   } else {
     toast.error({
@@ -49,14 +52,24 @@ definePageMeta({
 
 <template>
   <div class="flex justify-between">
-    <div class="bg-blue-300 w-[30%] h-screen">
-      <h1 class="font-bold text-white">CRM</h1>
+    <div
+      v-if="breakpoints.sm.value"
+      class="bg-blue-700 bg-center w-[50%] h-screen bg-[url(https://www.mundovirtualbrasil.com.br/wp-content/uploads/2024/02/Intermediacao-de-negocios.jpg)] bg-cover bg-center bg-blend-multiply h-64 flex items-center justify-center"
+    >
+      <div class="flex flex-col">
+        <h3 class="font-bold text-white text-md text-[2rem]">
+          Organize seu negócio
+        </h3>
+        <h1 class="font-bold text-blue-700 text-[8rem]">CRM</h1>
+        <p class="text-white italic">"Melhor controle no seu atendimento"</p>
+      </div>
     </div>
 
     <div
-      class="min-h-screen w-full bg-gray-50 flex justify-center items-center"
+      class="min-h-screen w-full bg-gray-50 flex justify-center items-center shadow-md"
     >
       <form class="form-login" @submit.prevent="login">
+        <h3 class="font-bold text-md text-xl">Login</h3>
         <GTInput
           id="email"
           v-model="email"

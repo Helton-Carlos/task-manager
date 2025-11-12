@@ -3,8 +3,8 @@
 @tailwind utilities;
 
 * {
-  margin: 0;
-  padding: 0;
+  margin: 0px;
+  padding: 0px;
   box-sizing: border-box;
 }
 
@@ -21,5 +21,5 @@ input {
 }
 
 .form-login {
-  @apply w-full bg-gray-200 flex flex-col gap-4 mx-auto p-8 border border-gray-200 rounded shadow md:w-[420px];
+  @apply w-full bg-gray-200 flex flex-col gap-2 mx-auto p-8 border border-gray-200 rounded shadow-md md:w-[420px];
 }

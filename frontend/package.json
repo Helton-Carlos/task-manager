@@ -24,6 +24,8 @@
   "devDependencies": {
     "@nuxt/eslint": "^1.10.0",
     "@nuxtjs/tailwindcss": "^6.14.0",
+    "@vueuse/core": "^14.0.0",
+    "@vueuse/nuxt": "^14.0.0",
     "eslint": "^9.39.1",
     "prettier-plugin-tailwindcss": "^0.7.1",
     "typescript": "^5.9.3"
