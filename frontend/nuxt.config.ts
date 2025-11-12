@@ -4,4 +4,14 @@ export default defineNuxtConfig({
   modules: ["@nuxtjs/tailwindcss", "nuxt-toast"],
   css: ["~/assets/css/main.css"],
   nitro: { compressPublicAssets: true },
+  toast: {
+    settings: {
+      rtl: true,
+      position: "bottomRight",
+      timeout: 5000,
+      closeOnEscape: true,
+      closeOnClick: true,
+      pauseOnHover: true,
+    },
+  },
 });

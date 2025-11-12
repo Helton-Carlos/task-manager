@@ -38,7 +38,6 @@ const login = handleSubmit(async (values) => {
     toast.error({
       title: "Erro!",
       message: "Falha, tente novamente...",
-      timeout: 30000,
     });
   }
 });
