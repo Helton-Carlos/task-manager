@@ -1,5 +1,5 @@
-export default defineNuxtRouteMiddleware((to, _from) => {
-  if (to.name !== 'login') {
-    return navigateTo('/login');
-  }
+export default defineNuxtRouteMiddleware((_to, _from) => {
+  // if (to.name !== 'login') {
+  //   return navigateTo('/login');
+  // }
 });

@@ -1,37 +1,50 @@
 <script setup lang="ts">
-import { useForm, useField } from 'vee-validate';
-import * as yup from 'yup';
+import { useForm, useField } from "vee-validate";
+import * as yup from "yup";
+
+const toast = useToast();
 
 const schema = yup.object({
-  email: yup.string().email('Email inválido').required('O email é obrigatório'),
-  password: yup.string().required('Digite sua senha'),
+  email: yup.string().email("Email inválido").required("O email é obrigatório"),
+  password: yup.string().required("Digite sua senha"),
 });
 
 const { handleSubmit } = useForm({ validationSchema: schema });
 
 const { value: email, errorMessage: emailError } = useField<string>(
-  'email',
+  "email",
   undefined,
   {
-    initialValue: '',
-  },
+    initialValue: "",
+  }
 );
 const { value: password, errorMessage: passwordError } = useField<string>(
-  'password',
+  "password",
   undefined,
   {
-    initialValue: '',
-  },
+    initialValue: "",
+  }
 );
 
 const login = handleSubmit(async (values) => {
   if (values.email && values.password) {
-    await navigateTo('/');
+    await navigateTo("/");
+
+    toast.success({
+      title: "Sucesso!",
+      message: "Seja bem-vindo!",
+    });
+  } else {
+    toast.error({
+      title: "Erro!",
+      message: "Falha, tente novamente...",
+      timeout: 30000,
+    });
   }
 });
 
 definePageMeta({
-  layout: 'login',
+  layout: "login",
 });
 </script>
 
