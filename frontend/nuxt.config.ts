@@ -1,7 +1,12 @@
 export default defineNuxtConfig({
   compatibilityDate: "2025-07-15",
   devtools: { enabled: true },
-  modules: ["@nuxtjs/tailwindcss", "nuxt-toast", "@nuxt/eslint"],
+  modules: [
+    "@nuxtjs/tailwindcss", 
+    "nuxt-toast", 
+    "@nuxt/eslint", 
+    "@nuxt/icon"
+  ],
   css: ["~/assets/css/main.css"],
   nitro: { compressPublicAssets: true },
   toast: {
@@ -14,4 +19,11 @@ export default defineNuxtConfig({
       pauseOnHover: true,
     },
   },
+  icon: {
+    mode: 'css',
+    cssLayer: 'base',
+    serverBundle: {
+      collections: ['lucide', 'fa6-brands'] 
+    }
+  } 
 });
