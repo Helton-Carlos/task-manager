@@ -54,7 +54,7 @@ definePageMeta({
   <div class="flex justify-between">
     <div
       v-if="breakpoints.sm.value"
-      class="bg-blue-700 bg-center w-[50%] h-screen bg-[url(https://www.mundovirtualbrasil.com.br/wp-content/uploads/2024/02/Intermediacao-de-negocios.jpg)] bg-cover bg-center bg-blend-multiply h-64 flex items-center justify-center"
+      class="bg-blue-700 bg-center min-w-[50%] h-screen bg-[url(https://www.mundovirtualbrasil.com.br/wp-content/uploads/2024/02/Intermediacao-de-negocios.jpg)] bg-cover bg-center bg-blend-multiply h-64 flex items-center justify-center"
     >
       <div class="flex flex-col">
         <h3 class="font-bold text-white text-md text-[2rem]">
@@ -66,7 +66,7 @@ definePageMeta({
     </div>
 
     <div
-      class="min-h-screen w-full bg-gray-50 flex justify-center items-center shadow-md"
+      class="min-h-screen bg-gray-50 px-4 w-full flex justify-center items-center shadow-md"
     >
       <form class="form-login" @submit.prevent="login">
         <h3 class="font-bold text-md text-xl">Login</h3>
