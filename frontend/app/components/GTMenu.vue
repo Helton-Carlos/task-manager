@@ -6,6 +6,16 @@ const menu = ref<{ icon: string; label: string; path: string }[]>([
     path: "/",
   },
   {
+    icon: "lucide:phone-call",
+    label: "Realizar Chamado",
+    path: "/",
+  },
+  {
+    icon: "lucide:history",
+    label: "Histórico",
+    path: "/",
+  },
+  {
     icon: "lucide:settings",
     label: "Configurações",
     path: ''
@@ -14,13 +24,13 @@ const menu = ref<{ icon: string; label: string; path: string }[]>([
 </script>
 
 <template>
-    <div class="w-[250px]">
-     <div class="mb-8">
-       <h1 class="bg-blue-700 font-bold text-white px-2 py-1 round-md">CRM</h1>
+    <div class="w-[250px] h-screen flex flex-col">
+     <div class="mb-8 flex justify-start">
+       <h1 class="bg-blue-700 font-bold text-2xl text-white px-2 py-1 mx-auto my-8 round-md">CRM</h1>
      </div>
    
-      <nav>
-        <ul class="mt-8 flex flex-col justify-center gap-2">
+      <nav class="container flex-1">
+        <ul class="flex flex-col justify-center gap-8 mx-4">
           <li 
             v-for="item in menu" :key="item.path"
             class="text-sm text-gray-500 hover:text-blue-500 font-bold flex items-center gap-2"
@@ -30,5 +40,13 @@ const menu = ref<{ icon: string; label: string; path: string }[]>([
           </li>
         </ul>
       </nav>
+
+      <GTButton
+        class="flex justify-end items-center gap-4 mx-auto my-8"
+        type="button"
+        underline
+      >
+        <span class="text-gray-500 hover:underline">Sair</span>
+      </GTButton>
    </div>
 </template>

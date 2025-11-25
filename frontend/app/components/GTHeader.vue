@@ -20,7 +20,10 @@ const user = ref<{ name: string }>({ name: "John Doe" });
 
     <nav>
       <ul class="flex items-center gap-2">
-        <li class="flex items-center gap-1"> <Icon name="lucide:settings" size="24" color="blue" /> <span>test</span></li>
+        <li class="flex items-center gap-1"> 
+          <Icon name="lucide:settings" size="24" color="blue" /> 
+          <span>test</span>
+        </li>
       </ul>
     </nav>
   </header>
