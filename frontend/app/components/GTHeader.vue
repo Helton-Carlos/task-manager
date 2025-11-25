@@ -6,7 +6,7 @@ const user = ref<{ name: string }>({ name: "John Doe" });
 <template>
   <header>
     <div>
-      <h3 class="font-bold">Olá, {{ user.name }}</h3>
+      <h3 class="font-bold text-gray-500">Olá, {{ user.name }}</h3>
     </div>
 
     <div class="w-[400px]">
@@ -20,8 +20,8 @@ const user = ref<{ name: string }>({ name: "John Doe" });
 
     <nav>
       <ul class="flex items-center gap-2">
-        <li class="flex items-center gap-1"> 
-          <Icon name="lucide:settings" size="24" color="blue" /> 
+        <li class="flex items-center gap-1">
+          <Icon name="lucide:settings" size="24" color="blue" />
           <span>test</span>
         </li>
       </ul>

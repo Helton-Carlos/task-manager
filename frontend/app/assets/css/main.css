@@ -13,7 +13,7 @@ body {
 }
 
 header {
-  @apply w-full bg-white flex justify-between items-center p-4;
+  @apply w-full bg-white flex justify-between items-center py-4 px-8 rounded-sm shadow-md;
 }
 
 input {
