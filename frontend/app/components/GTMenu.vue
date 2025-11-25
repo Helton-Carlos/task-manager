@@ -33,7 +33,7 @@ const menu = ref<{ icon: string; label: string; path: string }[]>([
       </h1>
     </div>
 
-    <nav class="container flex-1">
+    <nav class="container flex-1 mt-8">
       <ul class="flex flex-col justify-center gap-8 mx-4">
         <li
           v-for="item in menu"
