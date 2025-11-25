@@ -2,10 +2,9 @@
   <div class="flex">
     <GTMenu />
 
-   <div class="flex-1">
-     <GTHeader />
+    <div class="flex-1">
+      <GTHeader />
       <slot />
-    <GTFooter />
-   </div>
+    </div>
   </div>
 </template>

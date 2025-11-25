@@ -24,10 +24,10 @@ const menu = ref<{ icon: string; label: string; path: string }[]>([
 </script>
 
 <template>
-  <div class="w-[250px] h-screen flex flex-col">
+  <div class="w-[250px] h-screen bg-white flex flex-col shadow">
     <div class="mb-8 flex justify-start">
       <h1
-        class="bg-blue-700 font-bold text-2xl text-white px-2 py-1 mx-auto my-8 round-md"
+        class="bg-blue-700 font-bold text-2xl text-white px-2 py-1 mx-auto my-5 round-md"
       >
         CRM
       </h1>

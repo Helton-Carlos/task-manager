@@ -13,13 +13,16 @@ body {
 }
 
 header {
-  @apply w-full bg-white flex justify-between items-center py-4 px-8 rounded-sm shadow-md;
+  @apply container w-full bg-white mt-4 py-4 rounded-full shadow-md;
 }
 
 input {
   @apply border border-gray-300 rounded px-3 py-2 w-full focus:outline-none focus:ring-2 focus:ring-blue-500;
 }
 
+.card {
+  @apply max-w-[380px] bg-white shadow-md my-8;
+}
 .container {
   @apply w-[90%] mx-auto;
 }
