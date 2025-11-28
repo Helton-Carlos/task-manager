@@ -92,6 +92,13 @@ const sectorOption = [
           :options="sectorOption"
         />
       </div>
+
+      <div>
+        <GTButton to="/iniciar-chamado">
+          <span>Criar chamado</span>
+          <Icon name="lucide:plus" size="24" color="white" />
+        </GTButton>
+      </div>
     </div>
   </div>
 </template>

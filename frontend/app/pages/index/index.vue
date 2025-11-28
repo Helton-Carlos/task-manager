@@ -8,14 +8,15 @@
         </h3>
 
         <p class="flex-1">
-          Crie um novo chamado para o seu cliente, com o objetivo de melhorar a satisfação do cliente e aumentar a retenção de clientes.
+          Crie um novo chamado para o seu cliente, com o objetivo de melhorar a
+          satisfação do cliente e aumentar a retenção de clientes.
         </p>
-        
-       <div class="flex justify-end">
-         <nuxt-link to="/iniciar-chamado" class="flex gap-2 items-center btn-secondary">
-          Criar chamado <Icon name="lucide:plus" size="24" color="white" />
-        </nuxt-link>
-       </div>
+
+        <div class="flex justify-end">
+          <nuxt-link to="/iniciar-chamado" class="btn-secondary">
+            Criar chamado <Icon name="lucide:plus" size="24" color="white" />
+          </nuxt-link>
+        </div>
       </div>
 
       <div class="card flex flex-col gap-4">
@@ -25,14 +26,16 @@
         </h3>
 
         <p class="flex-1">
-          Verifique o histórico de chamados para o seu cliente, com o objetivo de melhorar a satisfação do cliente e aumentar a retenção de clientes.
+          Verifique o histórico de chamados para o seu cliente, com o objetivo
+          de melhorar a satisfação do cliente e aumentar a retenção de clientes.
         </p>
-        
-       <div class="flex justify-end">
-         <nuxt-link to="/historico" class="flex gap-2 items-center btn-secondary">
-          Verificar histórico <Icon name="lucide:list-check" size="24" color="white" />
-        </nuxt-link>
-       </div>
+
+        <div class="flex justify-end">
+          <nuxt-link to="/historico" class="btn-secondary">
+            Verificar histórico
+            <Icon name="lucide:list-check" size="24" color="white" />
+          </nuxt-link>
+        </div>
       </div>
 
       <div class="card flex flex-col gap-4">
@@ -42,14 +45,16 @@
         </h3>
 
         <p class="flex-1">
-          Pesquise por clientes para o seu negócio, com o objetivo de melhorar a satisfação do cliente e aumentar a retenção de clientes.
+          Pesquise por clientes para o seu negócio, com o objetivo de melhorar a
+          satisfação do cliente e aumentar a retenção de clientes.
         </p>
-        
-       <div class="flex justify-end">
-         <nuxt-link to="/clientes" class="flex gap-2 items-center btn-secondary">
-          Procurar cliente <Icon name="lucide:users" size="24" color="white" />
-        </nuxt-link>
-       </div>
+
+        <div class="flex justify-end">
+          <nuxt-link to="/clientes" class="btn-secondary">
+            Procurar cliente
+            <Icon name="lucide:users" size="24" color="white" />
+          </nuxt-link>
+        </div>
       </div>
     </div>
   </div>
