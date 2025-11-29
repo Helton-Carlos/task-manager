@@ -30,8 +30,6 @@ export const loginUser = (req: Request<{}, {}, User>, res: Response): void => {
 export const createUser = (req: Request<{}, {}, User>, res: Response): void => {
   const { nome, email, password } = req.body;
 
-  console.log(nome, email, password);
-
   try {
     const stmt = db.prepare(
       'INSERT INTO usuarios (nome, email, senha) VALUES (?, ?, ?)',
