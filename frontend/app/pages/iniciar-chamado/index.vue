@@ -5,6 +5,7 @@ const typeCall = ref<string>("Financeiro");
 const sector = ref<string>("");
 const company = ref<string>("");
 const priority = ref<string>("");
+const modal = useTemplateRef("modal");
 
 const companyOption = [
   { value: "suco", name: "Caso do suco" },
@@ -33,6 +34,19 @@ const sectorOption = [
   { value: "logistica", name: "Logística / Operações" },
   { value: "cs", name: "Customer Success (Sucesso do Cliente)" },
 ];
+
+function openModal() {
+  modal.value?.openModal();
+}
+
+function closeModal() {
+  modal.value?.closeModal();
+}
+
+function initCall() {
+  console.log("hey");
+  modal.value?.closeModal();
+}
 </script>
 
 <template>
@@ -94,7 +108,7 @@ const sectorOption = [
       </div>
 
       <div>
-        <GTButton to="/iniciar-chamado">
+        <GTButton @click="openModal">
           <span>Criar chamado</span>
           <Icon name="lucide:plus" size="24" color="white" />
         </GTButton>
@@ -102,7 +116,7 @@ const sectorOption = [
     </div>
   </div>
 
-  <GTModal>
+  <GTModal ref="modal">
     <template #title>
       <h3 class="text-lg font-semibold">Título do Modal</h3>
     </template>
@@ -112,8 +126,8 @@ const sectorOption = [
     </template>
 
     <template #footer>
-      <GTButton underline>Cancelar</GTButton>
-      <GTButton> Salvar </GTButton>
+      <GTButton underline @click="closeModal">Cancelar</GTButton>
+      <GTButton @click="initCall"> Iniciar </GTButton>
     </template>
   </GTModal>
 </template>
