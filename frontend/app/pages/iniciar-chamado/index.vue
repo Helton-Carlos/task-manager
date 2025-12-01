@@ -79,9 +79,8 @@ const sectorOption = [
   { value: "cs", name: "Customer Success (Sucesso do Cliente)" },
 ];
 
-const submit = handleSubmit((values) => {
-  console.log("Formulário validado com sucesso! Dados:", values);
-  (modal.value as any)?.openModal();
+const submit = handleSubmit(() => {
+  modal.value?.openModal();
 });
 
 function closeModal() {
@@ -182,11 +181,87 @@ function initCall() {
 
   <GTModal ref="modal">
     <template #title>
-      <h3 class="text-lg font-semibold">Título do Modal</h3>
+      <h3 class="text-lg font-semibold">Chamado criado</h3>
     </template>
 
     <template #body>
-      <p class="font-semibold">teste</p>
+      <div class="flex flex-col w-full gap-4">
+        <div class="flex justify-center gap-4">
+          <div
+            class="flex bg-green-100 gap-2 p-2 rounded-md shadow cursor-pointer"
+          >
+            <Icon name="lucide:play" size="24" color="green" />
+            <span class="text-green-800">Iniciar</span>
+          </div>
+
+          <div
+            class="flex bg-yellow-100 gap-2 p-2 rounded-md shadow cursor-pointer"
+          >
+            <Icon name="lucide:pause" size="24" color="yellow" />
+            <span class="text-yellow-800">Pausar</span>
+          </div>
+
+          <div
+            class="flex bg-red-100 gap-2 p-2 rounded-md shadow cursor-pointer"
+          >
+            <Icon name="lucide:square-stop" size="24" color="red" />
+            <span class="text-red-800">Finalizar</span>
+          </div>
+        </div>
+
+        <GTInput
+          v-model="name"
+          label-title="Colaborador"
+          type="text"
+          placeholder="digite seu nome"
+          disabled
+        />
+
+        <GTSelect
+          id="empresa"
+          v-model="company"
+          class="flex-1"
+          label-title="Empresa"
+          placeholder="ex: casa do suco"
+          :options="companyOption"
+          disabled
+        />
+
+        <GTInput
+          v-model="today"
+          label-title="Dia do atendimento"
+          type="date"
+          disabled
+        />
+
+        <GTInput
+          v-model="typeCall"
+          label-title="Tipo de atendimento"
+          type="text"
+          placeholder="Financeiro"
+          disabled
+        />
+
+        <GTSelect
+          id="status"
+          v-model="priority"
+          class="flex-1"
+          label-title="Status de prioridade"
+          placeholder="ex: sem prioridade"
+          :options="statusOption"
+          disabled
+        />
+
+        <GTSelect
+          id="setores"
+          v-model="sector"
+          class="flex-1"
+          label-title="Possível Setores"
+          placeholder="ex: Desenvolvimento"
+          :options="sectorOption"
+          disabled
+        />
+      </div>
     </template>
 
     <template #footer>

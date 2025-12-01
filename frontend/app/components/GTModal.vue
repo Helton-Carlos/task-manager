@@ -19,7 +19,7 @@ defineExpose({
   <div v-if="modal" class="background-modal fixed inset-0 z-50">
     <div class="flex items-center justify-center min-h-screen p-4">
       <div class="mx-auto max-w-lg w-full rounded-xl bg-white shadow-xl">
-        <div class="p-4 border-b">
+        <div class="py-2 px-4 border-b">
           <slot name="title" />
         </div>
 

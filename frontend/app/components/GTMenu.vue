@@ -72,7 +72,7 @@ const menu = ref<{ icon: string; label: string; path: string }[]>([
     </div>
 
     <div
-      v-if="openMenu"
+      v-if="openMenu && !sm"
       class="absolute top-0 bg-white w-screen h-screen !z-50 p-4 flex flex-col"
     >
       <div class="flex justify-end mb-8">
