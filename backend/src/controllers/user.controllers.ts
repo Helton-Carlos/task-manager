@@ -2,7 +2,7 @@ import type { Request, Response } from 'express';
 import { db } from '../db/database';
 import type { User } from '../types/user';
 
-export const loginUser = (req: Request<{}, {}, User>, res: Response): void => {
+export const loginUser = (req: Request<User>, res: Response): void => {
   const { nome, password } = req.body;
 
   try {
@@ -27,7 +27,7 @@ export const loginUser = (req: Request<{}, {}, User>, res: Response): void => {
   }
 };
 
-export const createUser = (req: Request<{}, {}, User>, res: Response): void => {
+export const createUser = (req: Request<User>, res: Response): void => {
   const { nome, email, password } = req.body;
 
   try {
