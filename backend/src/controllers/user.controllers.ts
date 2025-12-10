@@ -19,7 +19,7 @@ export const loginUser = (req: Request<User>, res: Response): void => {
 
     res.status(200).json({
       autenticado: true,
-      usuario: user,
+      users: user,
     });
   } catch (error) {
     console.error("Erro ao verificar usuário:", error);

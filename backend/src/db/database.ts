@@ -18,6 +18,6 @@ db.exec(`
     description TEXT NOT NULL,
     created_at DATETIME DEFAULT CURRENT_TIMESTAMP,
     is_completed BOOLEAN DEFAULT 0,
-    FOREIGN KEY (user_id) REFERENCES usuarios (id) ON DELETE CASCADE
+    FOREIGN KEY (user_id) REFERENCES users (id) ON DELETE CASCADE
   );
 `);
