@@ -1,10 +1,11 @@
+import type { FetchOptions } from "ofetch";
+
 export const useApi = () => {
   const config = useRuntimeConfig();
 
   const get = async <T = unknown>(endpoint: string) => {
     try {
       const data = await $fetch<T>(`${config.public.apiUrl}${endpoint}`);
-
       return data;
     } catch (error) {
       console.error("Erro ao fazer requisição GET:", error);
@@ -14,8 +15,8 @@ export const useApi = () => {
 
   const post = async <T = unknown>(
     endpoint: string,
-    body: unknown,
-    options: unknown = {}
+    body: unknown | null | undefined,
+    options: FetchOptions = {}
   ) => {
     try {
       const data = await $fetch<T>(`${config.public.apiUrl}${endpoint}`, {
@@ -23,7 +24,6 @@ export const useApi = () => {
         method: "POST",
         body,
       });
-
       return data;
     } catch (error) {
       console.error("Erro ao fazer POST:", error);
