@@ -13,7 +13,7 @@ const buttonClass = computed(() => {
   }
 
   if (props.underline) {
-    return "text-gray-600 hover:text-gray-800 font-semibold py-2 px-4 rounded cursor-pointer underline hover:no-underline";
+    return "text-gray-600 hover:text-gray-800 font-semibold py-2 rounded cursor-pointer underline hover:no-underline";
   }
 
   return "btn-primary";

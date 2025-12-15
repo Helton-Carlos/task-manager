@@ -2,10 +2,12 @@
 import { useForm, useField } from "vee-validate";
 import { useBreakpoints } from "~/composables/useBreakpoints";
 import { useApi } from "~/composables/useApi";
+import { userStore } from "~/stores/user";
 import * as yup from "yup";
 import type { User } from "~/types/user";
 
 const { post } = useApi();
+const { login } = userStore();
 
 const breakpoints = useBreakpoints();
 
@@ -33,7 +35,7 @@ const { value: password, errorMessage: passwordError } = useField<string>(
   }
 );
 
-const login = handleSubmit(async (values) => {
+const submit = handleSubmit(async (values) => {
   try {
     const user = await post<User>("/login", {
       email: values.email,
@@ -41,12 +43,7 @@ const login = handleSubmit(async (values) => {
     });
 
     if (user) {
-      await navigateTo("/");
-
-      toast.success({
-        title: "Sucesso",
-        message: "Seja bem-vindo",
-      });
+      await login(user);
     } else {
       toast.error({
         title: "Erro!",
@@ -86,7 +83,7 @@ definePageMeta({
     <div
       class="min-h-screen bg-gray-50 px-4 w-full flex justify-center items-center shadow-md"
     >
-      <form class="form-login" @submit.prevent="login">
+      <form class="form-login" @submit.prevent="submit">
         <h3 class="font-bold text-md text-xl">Login</h3>
         <GTInput
           id="email"
@@ -105,6 +102,11 @@ definePageMeta({
           placeholder="ex: tes4@#$%"
         />
         <p class="text-red-500 text-sm">{{ passwordError }}</p>
+
+        <GTButton type="button" underline class="flex items-center gap-2">
+          <span>Ainda não sou cadastrado</span>
+          <Icon name="lucide:arrow-right" size="12" color="blue"
+        /></GTButton>
 
         <GTButton type="submit">Login</GTButton>
       </form>

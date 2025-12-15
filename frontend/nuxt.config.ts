@@ -3,7 +3,13 @@ const API_BASE = import.meta.env.TASK_API ?? "http://localhost:8080";
 export default defineNuxtConfig({
   compatibilityDate: "2025-07-15",
   devtools: { enabled: true },
-  modules: ["@nuxtjs/tailwindcss", "nuxt-toast", "@nuxt/eslint", "@nuxt/icon"],
+  modules: [
+    "@nuxtjs/tailwindcss",
+    "nuxt-toast",
+    "@nuxt/eslint",
+    "@nuxt/icon",
+    "@pinia/nuxt",
+  ],
   css: ["~/assets/css/main.css"],
   nitro: { compressPublicAssets: true },
   toast: {

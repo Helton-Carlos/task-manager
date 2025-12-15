@@ -13,12 +13,12 @@ export const loginUser = (req: Request<User>, res: Response): void => {
     const user = stmt.get(email, password) as User | undefined;
 
     if (!user) {
-      res.status(401).json({ autenticado: false });
+      res.status(401).json({ authentication: false });
       return;
     }
 
     res.status(200).json({
-      autenticado: true,
+      authentication: true,
       users: user,
     });
   } catch (error) {
