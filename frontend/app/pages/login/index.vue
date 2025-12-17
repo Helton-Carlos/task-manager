@@ -111,8 +111,12 @@ const registerSubmit = handleSubmit(async (values) => {
         title: "Erro!",
         message: "Falha, tente novamente...",
       });
+    } finally {
+      register.value = false;
     }
   } else {
+    register.value = false;
+
     toast.error({
       title: "Erro!",
       message: "Senha diferente da confirmação da senha",

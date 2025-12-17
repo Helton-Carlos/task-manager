@@ -1,8 +1,10 @@
 <script setup lang="ts">
 import { useBreakpoints } from "~/composables/useBreakpoints";
+import { userStore } from "~/stores/user";
 
 const { sm } = useBreakpoints();
 const openMenu = ref<boolean>(false);
+const { logoff } = userStore();
 
 const menu = ref<{ icon: string; label: string; path: string }[]>([
   {
@@ -53,12 +55,13 @@ const menu = ref<{ icon: string; label: string; path: string }[]>([
         </ul>
       </nav>
 
-      <NuxtLink
-        class="flex justify-end items-center gap-4 mx-auto my-8"
-        to="/login"
+      <div
+        class="flex justify-end items-center gap-4 mx-auto my-8 cursor-pointer"
       >
-        <span class="text-gray-500 font-bold hover:underline">Sair</span>
-      </NuxtLink>
+        <span class="text-gray-500 font-bold hover:underline" @click="logoff">
+          Sair
+        </span>
+      </div>
     </div>
 
     <div v-else class="menu-mobile">
@@ -100,13 +103,13 @@ const menu = ref<{ icon: string; label: string; path: string }[]>([
         </ul>
       </nav>
 
-      <NuxtLink
-        class="flex justify-end items-center gap-4 mx-auto my-8"
-        to="/login"
-        @click="() => (openMenu = false)"
+      <div
+        class="flex justify-end items-center gap-4 mx-auto my-8 cursor-pointer"
       >
-        <span class="text-gray-500 font-bold hover:underline">Sair</span>
-      </NuxtLink>
+        <span class="text-gray-500 font-bold hover:underline" @click="logoff">
+          Sair
+        </span>
+      </div>
     </div>
   </div>
 </template>

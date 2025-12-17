@@ -13,8 +13,6 @@ export const userStore = defineStore("user", () => {
     user.value = users;
     auth.value = authentication;
 
-    console.log(auth.value);
-
     await navigateTo("/");
 
     toast.success({
@@ -23,9 +21,17 @@ export const userStore = defineStore("user", () => {
     });
   }
 
+  async function logoff() {
+    user.value = null;
+    auth.value = null;
+
+    await navigateTo("/login");
+  }
+
   return {
     user,
     auth,
     login,
+    logoff,
   };
 });
