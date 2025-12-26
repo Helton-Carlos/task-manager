@@ -15,9 +15,12 @@ db.exec(`
   CREATE TABLE IF NOT EXISTS create_tasks (
     task_id INTEGER PRIMARY KEY AUTOINCREMENT,
     user_id INTEGER NOT NULL,
-    description TEXT NOT NULL,
-    created_at DATETIME DEFAULT CURRENT_TIMESTAMP,
-    is_completed BOOLEAN DEFAULT 0,
+    name TEXT NOT NULL,
+    created_at TEXT NOT NULL,
+    typeCall TEXT NOT NULL,
+    sector TEXT NOT NULL,
+    company TEXT NOT NULL,
+    priority TEXT NOT NULL,
     FOREIGN KEY (user_id) REFERENCES users (id) ON DELETE CASCADE
   );
 `);

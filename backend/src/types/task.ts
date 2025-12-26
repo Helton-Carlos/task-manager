@@ -1,7 +1,10 @@
 export interface Task {
   task_id: string;
   user_id: string;
-  description: string;
+  name: string;
   created_at: string;
-  is_completed: boolean;
+  typeCall: string;
+  sector: string;
+  company: string;
+  priority: string;
 }
