@@ -1,12 +1,17 @@
 <script setup lang="ts">
 import { useForm, useField } from "vee-validate";
 import { useApi } from "~/composables/useApi";
+import { userStore } from "~/stores/user";
 import * as yup from "yup";
 import type { Task } from "~/types/task";
 
 const { post } = useApi();
+
+const store = userStore();
 const toast = useToast();
+
 const modal = useTemplateRef("modal");
+const { user } = storeToRefs(store);
 
 const schema = yup.object({
   name: yup.string().required("O nome é obrigatório"),
@@ -22,7 +27,7 @@ const { handleSubmit } = useForm({ validationSchema: schema });
 const { value: name, errorMessage: nameError } = useField<string>(
   "name",
   undefined,
-  { initialValue: "John Doe" }
+  { initialValue: user.value?.name.toUpperCase() }
 );
 
 const { value: createdAt, errorMessage: createdAtError } = useField<string>(
@@ -85,7 +90,8 @@ const sectorOption = [
 
 const submit = handleSubmit(async (values) => {
   try {
-    const task = await post<Task>("/task", {
+    const task = await post<Task>("/created-task", {
+      user_id: user.value?.id,
       name: values.name,
       created_at: values.createdAt,
       typeCall: values.typeCall,
