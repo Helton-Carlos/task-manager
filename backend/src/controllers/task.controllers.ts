@@ -9,7 +9,7 @@ export async function createTask(req: Request<Task>, res: Response) {
 
   try {
     const stmt = await db.prepare(
-      "INSERT INTO create_tasks(user_id, name, created_at, typeCall, sector, company, priority) VALUES (?, ?, ?, ?, ?, ?, ?)"
+      "INSERT INTO create_tasks(user_id, name, created_at, typeCall, sector, company, priority) VALUES (?, ?, ?, ?, ?, ?, ?)",
     );
 
     const result = stmt.run(
@@ -19,7 +19,7 @@ export async function createTask(req: Request<Task>, res: Response) {
       typeCall,
       sector,
       company,
-      priority
+      priority,
     );
 
     res.status(201).json({
@@ -38,12 +38,16 @@ export async function createTask(req: Request<Task>, res: Response) {
   }
 }
 
-export async function getAllTasks(req: Request<Task>, res: Response) {
+export async function getAllTasks(req: Request, res: Response) {
   try {
-    const resposta = await db.prepare("SELECT * FROM create_tasks");
+    const stmt = db.prepare("SELECT * FROM create_tasks");
+    const resposta = stmt.all();
 
-    res.send(resposta);
+    return res.status(200).json({
+      data: resposta,
+    });
   } catch (erro) {
-    console.log(`Busca de task não encontrada: ${erro}`);
+    console.error(`Erro ao buscar tasks: ${erro}`);
+    return res.status(500).json({ mensagem: "Erro interno do servidor" });
   }
 }
