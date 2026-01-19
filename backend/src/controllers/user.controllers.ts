@@ -8,7 +8,7 @@ export const loginUser = (req: Request<User>, res: Response): void => {
 
   try {
     const stmt = db.prepare(
-      "SELECT id, name, email FROM users WHERE email = ? AND password = ?"
+      "SELECT id, name, email FROM users WHERE email = ? AND password = ?",
     );
 
     const user = stmt.get(email, password) as User | undefined;
@@ -33,7 +33,7 @@ export const createUser = (req: Request<User>, res: Response): void => {
 
   try {
     const stmt = db.prepare(
-      "INSERT INTO users (name, email, password) VALUES (?, ?, ?)"
+      "INSERT INTO users (name, email, password) VALUES (?, ?, ?)",
     );
 
     const result = stmt.run(name, email, password);
@@ -50,6 +50,18 @@ export const createUser = (req: Request<User>, res: Response): void => {
       return;
     }
 
+    res.status(500).json({ erro: "Erro no servidor" });
+  }
+};
+
+export const getAllUser = (req: Request, res: Response): void => {
+  try {
+    const stmt = db.prepare("SELECT * FROM users");
+
+    const resposta = stmt.all();
+
+    res.status(200).json(resposta);
+  } catch (erro) {
     res.status(500).json({ erro: "Erro no servidor" });
   }
 };
