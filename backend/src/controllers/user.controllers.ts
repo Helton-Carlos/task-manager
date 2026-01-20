@@ -1,4 +1,5 @@
 import { db } from "../db/database";
+import { AuthService } from "../services/ auth.service";
 
 import type { Request, Response } from "express";
 import type { User } from "../types/user";
@@ -28,19 +29,28 @@ export const loginUser = (req: Request<User>, res: Response): void => {
   }
 };
 
-export const createUser = (req: Request<User>, res: Response): void => {
+export const createUser = async (req: Request<User>, res: Response) => {
   const { name, email, password } = req.body;
 
   try {
+    const hashedPassword = await AuthService.hashPassword(password);
+
     const stmt = db.prepare(
       "INSERT INTO users (name, email, password) VALUES (?, ?, ?)",
     );
 
-    const result = stmt.run(name, email, password);
+    const result = stmt.run(name, email, hashedPassword);
+
+    const token = AuthService.generateToken({
+      id: result.lastInsertRowid,
+      email,
+      name,
+    });
 
     res.status(201).json({
-      mensagem: "Usuário criado com sucesso!",
+      message: "Usuário criado com sucesso!",
       id: result.lastInsertRowid,
+      token,
     });
   } catch (error: any) {
     console.error("Erro ao criar usuário:", error);
